@@ -110,15 +110,16 @@ public class SpotifyService {
         }
         if(song == null)throw new SongDoesNotExistException("Song does not exist");
 
-        if(spotifyRepository.userLikedSongsMap.containsKey(user.getMobile())){
-            for(String likedSongTitle : spotifyRepository.userLikedSongsMap.get(user.getMobile())){
-                if(songTitle.equals(likedSongTitle)){
+        if(spotifyRepository.songLikeMap.containsKey(song)){
+            for(User user1 : spotifyRepository.songLikeMap.get(song)){
+                if(user1.getMobile().equals(user.getMobile())){
                     return song;
                 }
             }
         }
-        return spotifyRepository.likeSong(mobile, songTitle);
-
+         spotifyRepository.likeSong(mobile, songTitle);
+        spotifyRepository.userLikedTheSong(user,song);
+        return song;
     }
 
     public String mostPopularArtist() {

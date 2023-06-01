@@ -14,7 +14,6 @@ public class SpotifyRepository {
     public HashMap<User, List<Playlist>> userPlaylistMap = new HashMap<>();;
     public HashMap<Song, List<User>> songLikeMap = new HashMap<>();;
 
-    public HashMap<String,List<String>> userLikedSongsMap = new HashMap<>();
 
     public List<User> users = new ArrayList<>();;
     public List<Song> songs = new ArrayList<>();;
@@ -119,6 +118,11 @@ public class SpotifyRepository {
                 playlistListenerMap.put(playlist,new ArrayList<>());
             }
             playlistListenerMap.get(playlist).add(user);
+
+            if(!userPlaylistMap.containsKey(user)){
+                userPlaylistMap.put(user,new ArrayList<>());
+            }
+            userPlaylistMap.get(user).add(playlist);
         }
 
       return playlist;
@@ -155,6 +159,11 @@ public class SpotifyRepository {
                 playlistListenerMap.put(playlist,new ArrayList<>());
             }
             playlistListenerMap.get(playlist).add(user);
+
+            if(!userPlaylistMap.containsKey(user)){
+                userPlaylistMap.put(user,new ArrayList<>());
+            }
+            userPlaylistMap.get(user).add(playlist);
         }
 
         return playlist;
@@ -244,4 +253,10 @@ public class SpotifyRepository {
     }
 
 
+    public void userLikedTheSong(User user, Song song) {
+        if(!songLikeMap.containsKey(song)){
+            songLikeMap.put(song,new ArrayList<>());
+        }
+        songLikeMap.get(song).add(user);
+    }
 }
