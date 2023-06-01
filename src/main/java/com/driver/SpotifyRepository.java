@@ -6,39 +6,39 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class SpotifyRepository {
-    public HashMap<Artist, List<Album>> artistAlbumMap;
-    public HashMap<Album, List<Song>> albumSongMap;
-    public HashMap<Playlist, List<Song>> playlistSongMap;
-    public HashMap<Playlist, List<User>> playlistListenerMap;
-    public HashMap<User, Playlist> creatorPlaylistMap;
-    public HashMap<User, List<Playlist>> userPlaylistMap;
-    public HashMap<Song, List<User>> songLikeMap;
+    public HashMap<Artist, List<Album>> artistAlbumMap = new HashMap<>();;
+    public HashMap<Album, List<Song>> albumSongMap = new HashMap<>();;
+    public HashMap<Playlist, List<Song>> playlistSongMap = new HashMap<>();;
+    public HashMap<Playlist, List<User>> playlistListenerMap = new HashMap<>();;
+    public HashMap<User, Playlist> creatorPlaylistMap = new HashMap<>();;
+    public HashMap<User, List<Playlist>> userPlaylistMap = new HashMap<>();;
+    public HashMap<Song, List<User>> songLikeMap = new HashMap<>();;
 
     public HashMap<String,List<String>> userLikedSongsMap = new HashMap<>();
 
-    public List<User> users;
-    public List<Song> songs;
-    public List<Playlist> playlists;
-    public List<Album> albums;
-    public List<Artist> artists;
+    public List<User> users = new ArrayList<>();;
+    public List<Song> songs = new ArrayList<>();;
+    public List<Playlist> playlists = new ArrayList<>();;
+    public List<Album> albums = new ArrayList<>();;
+    public List<Artist> artists = new ArrayList<>();;
 
 
 
     public SpotifyRepository(){
         //To avoid hitting apis multiple times, initialize all the hashmaps here with some dummy data
-        artistAlbumMap = new HashMap<>();
-        albumSongMap = new HashMap<>();
-        playlistSongMap = new HashMap<>();
-        playlistListenerMap = new HashMap<>();
-        creatorPlaylistMap = new HashMap<>();
-        userPlaylistMap = new HashMap<>();
-        songLikeMap = new HashMap<>();
-
-        users = new ArrayList<>();
-        songs = new ArrayList<>();
-        playlists = new ArrayList<>();
-        albums = new ArrayList<>();
-        artists = new ArrayList<>();
+//        artistAlbumMap = new HashMap<>();
+//        albumSongMap = new HashMap<>();
+//        playlistSongMap = new HashMap<>();
+//        playlistListenerMap = new HashMap<>();
+//        creatorPlaylistMap = new HashMap<>();
+//        userPlaylistMap = new HashMap<>();
+//        songLikeMap = new HashMap<>();
+//
+//        users = new ArrayList<>();
+//        songs = new ArrayList<>();
+//        playlists = new ArrayList<>();
+//        albums = new ArrayList<>();
+//        artists = new ArrayList<>();
     }
 
     public User createUser(String name, String mobile) {
